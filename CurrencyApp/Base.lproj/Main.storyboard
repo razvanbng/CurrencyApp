@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iaS-Cc-W3O">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="s8Q-Ah-EMI">
+            <objects>
+                <navigationController id="iaS-Cc-W3O" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vbc-eS-QHp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="o04-Ue-SGW" kind="relationship" relationship="rootViewController" id="w6L-SD-5vV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JVX-ij-SKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1216" y="-212"/>
+        </scene>
+        <!--Products Table View Controller-->
+        <scene sceneID="4cV-HK-P9I">
+            <objects>
+                <tableViewController storyboardIdentifier="ProductsTableViewController" id="o04-Ue-SGW" customClass="ProductsTableViewController" customModule="CurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TrM-CC-f1h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCellId" id="TS2-OO-Ugs">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TS2-OO-Ugs" id="WHf-AW-Hwy">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="o04-Ue-SGW" id="g4p-SO-aVR"/>
+                            <outlet property="delegate" destination="o04-Ue-SGW" id="ZPf-2Q-NUz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="YyD-fa-4ow"/>
+                    <connections>
+                        <segue destination="CCv-nG-GSZ" kind="show" identifier="ShowTransactions" id="cgs-qc-dJy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gse-j9-qLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-384" y="-212"/>
+        </scene>
+        <!--Transactions View Controller-->
+        <scene sceneID="Ry0-ff-KNA">
+            <objects>
+                <viewController id="CCv-nG-GSZ" customClass="TransactionsViewController" customModule="CurrencyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y25-eC-Zp4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6kp-zr-nSl">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SxL-ay-sHt">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
+                                        <segments>
+                                            <segment title="EUR"/>
+                                            <segment title="USD"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="didSelectCurrency:" destination="CCv-nG-GSZ" eventType="valueChanged" id="fZX-0U-jMQ"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mG-xx-4Za">
+                                        <rect key="frame" x="0.0" y="51" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KVg-uL-1tx">
+                                        <rect key="frame" x="0.0" y="91.5" width="414" height="682.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PHy-nn-csD" firstAttribute="trailing" secondItem="6kp-zr-nSl" secondAttribute="trailing" id="8LP-c8-9sF"/>
+                            <constraint firstItem="PHy-nn-csD" firstAttribute="bottom" secondItem="6kp-zr-nSl" secondAttribute="bottom" id="8zW-KR-dA7"/>
+                            <constraint firstItem="6kp-zr-nSl" firstAttribute="top" secondItem="PHy-nn-csD" secondAttribute="top" id="O9U-rx-tqh"/>
+                            <constraint firstItem="6kp-zr-nSl" firstAttribute="leading" secondItem="PHy-nn-csD" secondAttribute="leading" id="Vuj-K5-tiH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PHy-nn-csD"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="03u-nP-xkt"/>
+                    <connections>
+                        <outlet property="currencySegmentedControl" destination="SxL-ay-sHt" id="J5u-hM-nkp"/>
+                        <outlet property="sumLabel" destination="0mG-xx-4Za" id="sOv-ap-KHQ"/>
+                        <outlet property="transactionsTableView" destination="KVg-uL-1tx" id="pVX-pe-E9C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lcT-5p-gV1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="539" y="-212"/>
+        </scene>
+    </scenes>
+</document>
